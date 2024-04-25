@@ -1,8 +1,3 @@
-#HW4
-testapp_IP = 51.250.86.183 
-testapp_port = 9292
-Для автоматического развертывания ВМ в облаке запускаем скрипт create-reddit.sh.
-
 yc compute instance create \
   --name reddit-app \
   --hostname reddit-app \
