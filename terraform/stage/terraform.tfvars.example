@@ -1,0 +1,10 @@
+service_account_key_file = "/home/remi/DevOps/key.json"
+cloud_id                 = "b1gncud5k1m9ae65d6ng"
+folder_id                = "b1gncud5k1m9ae65d6ng"
+zone                     = "ru-central1-a"
+app_disk_image           = "fd8j3rjkfcalrr6h81tq"
+db_disk_image            = "fd8b29d0tdvvv6f0v74f"
+public_key_path          = "/home/remi/.ssh/id_rsa.pub"
+private_key_path         = "/home/remi/.ssh/id_rsa"
+subnet_id                = "e9b652ujt36lcfqgq8p8"
+
