@@ -1,32 +1,23 @@
-<<<<<<< HEAD
-Создан основной файл main.tf, определены провайдеры и модули для приложения и базы данных.
-Добавлены переменные в variables.tf.
+Устален ансибл- sudo apt-add-repository ppa:ansible/ansible sudo apt update sudo apt install ansible
 
-Настройка путей к модулям:
+Настроены файл inventory
 
-В файле main.tf для каждого окружения созданы пути к модулям  ./modules/app и ./modules/db
+проверена комманда- ansible dbserver -m command -a uptime
 
-Выполнено развертывание ресурсов с помощью Terraform, проверены и созданы необходимые инстансы, результат работы отображен с указанием внешних IP-адресов созданных ресурсов.
+проверил работу с хостами- ansible app -m ping
 
-Создание окружений Stage и Prod:
+выполнил создание inventory.yml ansible all -m ping -i inventory.yml
 
-Созданы директории stage и prod в корневой папке проекта для раздельного управления окружениями.
-Скопированы все необходимые файлы (main.tf, variables.tf, outputs.tf, terraform.tfvars, key.json) в каждую из директорий.
-В файле main.tf для каждого окружения изменены пути к модулям на ../modules/app и ../modules/db.
+проверка на серверах: ansible app -m command -a 'ruby -v' ansible app -m command -a 'bundler -v' или обе ansible app -m command -a 'ruby -v; bundler -v' - но это не работает(не работоспособно) ansible app -m shell -a 'ruby -v; bundler -v'(работает)
 
-=======
-#HW4
-testapp_IP = 51.250.86.183 
-testapp_port = 9292
-Для автоматического развертывания ВМ в облаке запускаем скрипт create-reddit.sh.
+Проверка сервера db ansible db -m command -a 'systemctl status mongod' ansible db -m shell -a 'systemctl status mongod' ansible db -m systemd -a name=mongod или ansible db -m service -a name=mongod
 
-yc compute instance create \
-  --name reddit-app \
-  --hostname reddit-app \
-  --memory=4 \
-  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
-  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
-  --metadata serial-port-enable=1 \
-  --metadata-from-file user-data=/home/remi/.ssh/user-data.yaml
+Установка git ansible app -u ubuntu -b -K -m shell -a "sudo apt install -y git" Проверка: ansible app -m apt -a name=git
 
->>>>>>> packer-base
+Клон репозитория в новую папку- ansible app -m git -a 'repo=https://github.com/express42/reddit.git dest=/home/ubuntu/reddit'
+
+Создал ansible-playbook clone.yml
+
+Clone hosts: app tasks:
+Clone repo git: repo- https://github.com/express42/reddit.git dest: /home/appuser/reddit
+Удален и заново внесен в репозиторий- ansible app -m command -a 'rm -rf ~/reddit' ansible-playbook clone.yml 
