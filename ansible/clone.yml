@@ -1,0 +1,10 @@
+---
+- name: Clone reddit repository
+  hosts: app
+  become: true
+  tasks:
+    - name: Clone repository
+      git:
+        repo: 'https://github.com/express42/reddit.git'
+        dest: '/home/appuser/reddit'
+
