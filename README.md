@@ -1,4 +1,4 @@
-Устален ансибл- sudo apt-add-repository ppa:ansible/ansible sudo apt update sudo apt install ansible
+Установлен ансибл- sudo apt-add-repository ppa:ansible/ansible sudo apt update sudo apt install ansible
 
 Настроены файл inventory
 
