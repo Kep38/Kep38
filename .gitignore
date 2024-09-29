@@ -1,7 +1,14 @@
-variables.json
-*.tfstate
+# Terraform
+terraform.tfstate
+terraform.tfstate.*
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
-
+# Локальные файлы и директории
+.vscode/
+*.swp
+*~
+# Конфигурация приложения
+reddit_app.yml
+*.retry
