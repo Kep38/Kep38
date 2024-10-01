@@ -12,3 +12,4 @@ terraform.tfstate.*
 # Конфигурация приложения
 reddit_app.yml
 *.retry
+jdauphant.nginx
